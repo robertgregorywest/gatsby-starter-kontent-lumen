@@ -4,17 +4,28 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
+import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class CategoriesRoute extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata
+
+    const siteInfo = {
+      data: {
+        site: getSiteInfo(
+          this.props.data.kontentItemMenu,
+          this.props.data.kontentItemAuthor
+        ),
+      },
+    }
+
+    const { title } = siteInfo.data.site.siteMetadata
     const categories = this.props.data.allMarkdownRemark.group
 
     return (
       <Layout>
         <div>
           <Helmet title={`All Categories - ${title}`} />
-          <Sidebar {...this.props} />
+          <Sidebar {...siteInfo} />
           <div className="content">
             <div className="content__inner">
               <div className="page">
@@ -53,23 +64,47 @@ export default CategoriesRoute
 
 export const pageQuery = graphql`
   query CategoryesQuery {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
+    kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
+      elements {
+        menu_items {
+          linked_items {
+            ... on KontentItemMenuItem {
+              id
+              elements {
+                label {
+                  value
+                }
+                path {
+                  value
+                }
+              }
+            }
+          }
         }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
+      }
+    }
+    kontentItemAuthor(system: { codename: { eq: "author" } }) {
+      elements {
+        email {
+          value
+        }
+        github {
+          value
+        }
+        name {
+          value
+        }
+        rss {
+          value
+        }
+        telegram {
+          value
+        }
+        twitter {
+          value
+        }
+        vk {
+          value
         }
       }
     }
