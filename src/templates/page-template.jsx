@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PageTemplateDetails from '../components/PageTemplateDetails'
-import { getItemElementValuesFromKontentItemNode, getMenuItems } from '../utils/kontentItemNodeUtils'
+import { getItemElementValuesFromKontentItemNode, getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class PageTemplate extends React.Component {
   render() {
@@ -13,9 +13,7 @@ class PageTemplate extends React.Component {
     const description = pageDescription !== null ? pageDescription : subtitle
 
     let pageTemplateDetails = this.props;
-    pageTemplateDetails.data.site = { siteMetadata: {menu: {}}};
-    pageTemplateDetails.data.site.siteMetadata.menu = getMenuItems(this.props.data.kontentItemMenu);
-    pageTemplateDetails.data.site.siteMetadata.author = getItemElementValuesFromKontentItemNode(this.props.data.kontentItemAuthor);
+    pageTemplateDetails.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor);
 
     return (
       <Layout>
