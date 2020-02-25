@@ -1,5 +1,6 @@
-export function getSiteInfo(kontentItemMenuNode, kontentItemAuthorNode) {
-  let siteInfo = { siteMetadata: {} };
+export function getSiteInfo(kontentItemMenuNode, kontentItemAuthorNode, kontentItemSiteMetadataNode) {
+  let siteInfo = kontentItemSiteMetadataNode ? getItemElementValuesFromKontentItemNode(kontentItemSiteMetadataNode) : {};
+  siteInfo.siteMetadata = {};
   siteInfo.siteMetadata.menu = getMenuItems(kontentItemMenuNode);
   siteInfo.siteMetadata.author = getItemElementValuesFromKontentItemNode(kontentItemAuthorNode);
   return siteInfo;
