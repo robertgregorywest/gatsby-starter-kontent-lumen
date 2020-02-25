@@ -7,14 +7,17 @@ import Sidebar from '../components/Sidebar'
 
 class TagsRoute extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata
-    const tags = this.props.data.allMarkdownRemark.group
+    let tagsData = this.props;
+    tagsData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor, this.props.data.kontentItemSiteMetadata);
+
+    const { title } = tagsData.data.site.siteMetadata
+    const tags = tagsData.data.allMarkdownRemark.group
 
     return (
       <Layout>
         <div>
           <Helmet title={`All Tags - ${title}`} />
-          <Sidebar {...this.props} />
+          <Sidebar {...tagsData} />
           <div className="content">
             <div className="content__inner">
               <div className="page">
@@ -48,23 +51,60 @@ export default TagsRoute
 
 export const pageQuery = graphql`
   query TagsQuery {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
+    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
+      elements {
+        copyright {
+          value
         }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
+        subtitle {
+          value
+        }
+        title {
+          value
+        }
+      }
+    }
+    kontentItemMenu(system: {codename: {eq: "navigation_menu"}}) {
+      elements {
+        menu_items {
+          linked_items {
+            ... on KontentItemMenuItem {
+              id
+              elements {
+                label {
+                  value
+                }
+                path {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    kontentItemAuthor(system: {codename: {eq: "author"}}) {
+      elements {
+        email {
+          value
+        }
+        github {
+          value
+        }
+        name {
+          value
+        }
+        rss {
+          value
+        }
+        telegram {
+          value
+        }
+        twitter {
+          value
+        }
+        vk {
+          value
         }
       }
     }
