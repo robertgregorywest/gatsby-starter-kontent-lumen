@@ -7,11 +7,11 @@ import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class PageTemplate extends React.Component {
   render() {
-    let pageTemplateDetails = this.props;
-    pageTemplateDetails.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor, this.props.data.kontentItemSiteMetadata);
-    
-    const { title, subtitle } = pageTemplateDetails.data.site;
-    const page = this.props.data.markdownRemark
+    let pageTemplateData = this.props;
+    pageTemplateData.data.site = getSiteInfo(pageTemplateData.data.kontentItemMenu, pageTemplateData.data.kontentItemAuthor, pageTemplateData.data.kontentItemSiteMetadata);
+
+    const { title, subtitle } = pageTemplateData.data.site;
+    const page = pageTemplateData.data.markdownRemark
     const { title: pageTitle, description: pageDescription } = page.frontmatter
     const description = pageDescription !== null ? pageDescription : subtitle
 
@@ -22,7 +22,7 @@ class PageTemplate extends React.Component {
             <title>{`${pageTitle} - ${title}`}</title>
             <meta name="description" content={description} />
           </Helmet>
-          <PageTemplateDetails {...pageTemplateDetails} />
+          <PageTemplateDetails {...pageTemplateData} />
         </div>
       </Layout>
     )
