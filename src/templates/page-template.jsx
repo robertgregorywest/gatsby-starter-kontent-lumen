@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PageTemplateDetails from '../components/PageTemplateDetails'
-import getItemElementValuesFromKontentItemNode from '../utils/kontentItemNodeUtils'
+import { getItemElementValuesFromKontentItemNode, getMenuItems } from '../utils/kontentItemNodeUtils'
 
 class PageTemplate extends React.Component {
   render() {
@@ -11,6 +11,9 @@ class PageTemplate extends React.Component {
     const page = this.props.data.markdownRemark
     const { title: pageTitle, description: pageDescription } = page.frontmatter
     const description = pageDescription !== null ? pageDescription : subtitle
+    let pageTemplateDetails = this.props;
+    pageTemplateDetails.data.site.siteMetadata.menu = getMenuItems(this.props.data.kontentItemMenu);
+    debugger;
 
     return (
       <Layout>
@@ -19,7 +22,7 @@ class PageTemplate extends React.Component {
             <title>{`${pageTitle} - ${title}`}</title>
             <meta name="description" content={description} />
           </Helmet>
-          <PageTemplateDetails {...this.props} />
+          <PageTemplateDetails {...pageTemplateDetails} />
         </div>
       </Layout>
     )
@@ -43,15 +46,27 @@ export const pageQuery = graphql`
         }
       }
     }
+    kontentItemMenu(system: {codename: {eq: "navigation_menu"}}) {
+      elements {
+        menu_items {
+          linked_items {
+            ... on KontentItemMenuItem {
+              id
+              elements {
+                label {
+                  value
+                }
+                path {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     site {
       siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
-        }
         author {
           name
           email
