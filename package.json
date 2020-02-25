@@ -26,7 +26,7 @@
   "dependencies": {
     "@kentico/gatsby-source-kontent": "^4.3.0",
     "bluebird": "^3.5.1",
-    "gatsby": "^2.0.22",
+    "gatsby": "^2.19.21",
     "gatsby-plugin-catch-links": "^2.0.4",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.6",
