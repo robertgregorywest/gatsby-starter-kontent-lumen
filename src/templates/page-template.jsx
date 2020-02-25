@@ -11,9 +11,11 @@ class PageTemplate extends React.Component {
     const page = this.props.data.markdownRemark
     const { title: pageTitle, description: pageDescription } = page.frontmatter
     const description = pageDescription !== null ? pageDescription : subtitle
+
     let pageTemplateDetails = this.props;
+    pageTemplateDetails.data.site = { siteMetadata: {menu: {}}};
     pageTemplateDetails.data.site.siteMetadata.menu = getMenuItems(this.props.data.kontentItemMenu);
-    debugger;
+    pageTemplateDetails.data.site.siteMetadata.author = getItemElementValuesFromKontentItemNode(this.props.data.kontentItemAuthor);
 
     return (
       <Layout>
@@ -65,16 +67,28 @@ export const pageQuery = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
+    kontentItemAuthor(system: {codename: {eq: "author"}}) {
+      elements {
+        email {
+          value
+        }
+        github {
+          value
+        }
+        name {
+          value
+        }
+        rss {
+          value
+        }
+        telegram {
+          value
+        }
+        twitter {
+          value
+        }
+        vk {
+          value
         }
       }
     }
