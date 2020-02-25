@@ -2,13 +2,23 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Sidebar from '../components/Sidebar'
 import Layout from '../components/Layout'
+import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class NotFoundRoute extends React.Component {
   render() {
+    const siteInfo = {
+      data: {
+        site: getSiteInfo(
+          this.props.data.kontentItemMenu,
+          this.props.data.kontentItemAuthor
+        ),
+      },
+    }
+
     return (
       <Layout>
         <div>
-          <Sidebar {...this.props} />
+          <Sidebar {...siteInfo} />
           <div className="content">
             <div className="content__inner">
               <div className="page">
@@ -31,23 +41,47 @@ export default NotFoundRoute
 
 export const pageQuery = graphql`
   query NotFoundQuery {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
+    kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
+      elements {
+        menu_items {
+          linked_items {
+            ... on KontentItemMenuItem {
+              id
+              elements {
+                label {
+                  value
+                }
+                path {
+                  value
+                }
+              }
+            }
+          }
         }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
+      }
+    }
+    kontentItemAuthor(system: { codename: { eq: "author" } }) {
+      elements {
+        email {
+          value
+        }
+        github {
+          value
+        }
+        name {
+          value
+        }
+        rss {
+          value
+        }
+        telegram {
+          value
+        }
+        twitter {
+          value
+        }
+        vk {
+          value
         }
       }
     }
