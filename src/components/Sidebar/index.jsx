@@ -3,7 +3,6 @@ import get from 'lodash/get'
 import { Link } from 'gatsby'
 import Menu from '../Menu'
 import Links from '../Links'
-import profilePic from '../../pages/photo.jpg'
 import './style.scss'
 
 class Sidebar extends React.Component {
@@ -16,6 +15,7 @@ class Sidebar extends React.Component {
       menu,
     } = this.props.data.site.siteMetadata
     const isHomePage = get(location, 'pathname', '/') === '/'
+    const profilePic = this.props.data.kontentItemAuthor.elements.avatar_image.value[0].url;
 
     /* eslint-disable jsx-a11y/img-redundant-alt */
     const authorBlock = (

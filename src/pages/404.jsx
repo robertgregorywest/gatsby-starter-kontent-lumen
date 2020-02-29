@@ -83,6 +83,11 @@ export const pageQuery = graphql`
         vk {
           value
         }
+        avatar_image {
+          value {
+            url
+          }
+        }
       }
     }
   }
