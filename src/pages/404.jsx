@@ -6,19 +6,13 @@ import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class NotFoundRoute extends React.Component {
   render() {
-    const siteInfo = {
-      data: {
-        site: getSiteInfo(
-          this.props.data.kontentItemMenu,
-          this.props.data.kontentItemAuthor
-        ),
-      },
-    }
+    let routeData = this.props;
+    routeData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor)
 
     return (
       <Layout>
         <div>
-          <Sidebar {...siteInfo} />
+          <Sidebar {...routeData} />
           <div className="content">
             <div className="content__inner">
               <div className="page">
