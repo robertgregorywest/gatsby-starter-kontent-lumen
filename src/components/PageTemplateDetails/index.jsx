@@ -4,19 +4,20 @@ import './style.scss'
 
 class PageTemplateDetails extends React.Component {
   render() {
-    const page = this.props.data.markdownRemark
-
+    const pageTemplateData = this.props.data;
+    const kontentItemPage = pageTemplateData.kontentItemPage;
+debugger;
     return (
       <div>
         <Sidebar {...this.props} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
-              <h1 className="page__title">{page.frontmatter.title}</h1>
+              <h1 className="page__title">{kontentItemPage.elements.title.value}</h1>
               <div
                 className="page__body"
                 /* eslint-disable-next-line react/no-danger */
-                dangerouslySetInnerHTML={{ __html: page.html }}
+                dangerouslySetInnerHTML={{ __html: kontentItemPage.elements.description.resolvedData.html }}
               />
             </div>
           </div>

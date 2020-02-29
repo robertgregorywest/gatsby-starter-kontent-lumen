@@ -10,17 +10,12 @@ class PageTemplate extends React.Component {
     let pageTemplateData = this.props;
     pageTemplateData.data.site = getSiteInfo(pageTemplateData.data.kontentItemMenu, pageTemplateData.data.kontentItemAuthor, pageTemplateData.data.kontentItemSiteMetadata);
 
-    const { title, subtitle } = pageTemplateData.data.site;
-    const page = pageTemplateData.data.markdownRemark
-    const { title: pageTitle, description: pageDescription } = page.frontmatter
-    const description = pageDescription !== null ? pageDescription : subtitle
-
     return (
       <Layout>
         <div>
           <Helmet>
-            <title>{`${pageTitle} - ${title}`}</title>
-            <meta name="description" content={description} />
+            <title>{`${pageTemplateData.data.site.title} - ${pageTemplateData.data.kontentItemPage.elements.title.value}`}</title>
+            <meta name="description" content={pageTemplateData.data.kontentItemPage.elements.meta_description.value} />
           </Helmet>
           <PageTemplateDetails {...pageTemplateData} />
         </div>
@@ -90,13 +85,24 @@ export const pageQuery = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    kontentItemPage(elements: {slug: {value: {eq: $slug}}}) {
       id
-      html
-      frontmatter {
-        title
-        date
-        description
+      system {
+        id
+      }
+      elements {
+        description {
+          resolvedData {
+            html
+          }
+          value
+        }
+        meta_description  {
+          value
+        }
+        title {
+          value
+        }
       }
     }
   }
