@@ -8,24 +8,17 @@ import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class CategoriesRoute extends React.Component {
   render() {
-
-    const siteInfo = {
-      data: {
-        site: getSiteInfo(
-          this.props.data.kontentItemMenu,
-          this.props.data.kontentItemAuthor
-        ),
-      },
-    }
-
-    const { title } = siteInfo.data.site.siteMetadata
+    let categoriesData = this.props;
+    categoriesData.data.site = {};
+    categoriesData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor);
+    const { title } = categoriesData.data.site
     const categories = this.props.data.allMarkdownRemark.group
 
     return (
       <Layout>
         <div>
           <Helmet title={`All Categories - ${title}`} />
-          <Sidebar {...siteInfo} />
+          <Sidebar {...categoriesData} />
           <div className="content">
             <div className="content__inner">
               <div className="page">
