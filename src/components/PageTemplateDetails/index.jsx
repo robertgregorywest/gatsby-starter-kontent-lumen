@@ -6,7 +6,7 @@ class PageTemplateDetails extends React.Component {
   render() {
     const pageTemplateData = this.props.data;
     const kontentItemPage = pageTemplateData.kontentItemPage;
-debugger;
+
     return (
       <div>
         <Sidebar {...this.props} />
