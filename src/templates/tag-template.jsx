@@ -92,28 +92,47 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 1000
-      filter: {
-        frontmatter: {
-          tags: { in: [$tag] }
-          layout: { eq: "post" }
-          draft: { ne: true }
-        }
-      }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
+    allKontentItemArticle(filter: {elements: {tags: {itemCodenames: {in: [$tag]}}}}, sort: {fields: elements___date___value, order: DESC}) {
+      nodes {
+        elements {
+          category {
+            linked_items {
+              ... on KontentItemCategory {
+                elements {
+                  title {
+                    value
+                  }
+                }
+              }
+            }
           }
-          frontmatter {
-            title
-            date
-            category
-            description
+          date {
+            value
+          }
+          description {
+            value
+          }
+          content {
+            resolvedData {
+              html
+            }
+          }
+          slug {
+            value
+          }
+          tags {
+            linked_items {
+              ... on KontentItemTag {
+                elements {
+                  title {
+                    value
+                  }
+                }
+              }
+            }
+          }
+          title {
+            value
           }
         }
       }

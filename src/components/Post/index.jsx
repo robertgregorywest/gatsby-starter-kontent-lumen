@@ -5,13 +5,12 @@ import './style.scss'
 
 class Post extends React.Component {
   render() {
-    const {
-      title,
-      date,
-      category,
-      description,
-    } = this.props.data.node.frontmatter
-    const { slug, categorySlug } = this.props.data.node.fields
+    const title = this.props.data.title.value;
+    const date = this.props.data.date.value;
+    const category = this.props.data.category.linked_items[0].elements.title.value;
+    const categorySlug = this.props.data.category.linked_items[0].elements.slug.value;
+    const description = this.props.data.description.value;
+    const slug = this.props.data.slug.value;
 
     return (
       <div className="post">

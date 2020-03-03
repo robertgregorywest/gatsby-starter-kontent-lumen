@@ -6,16 +6,15 @@ import PostTemplateDetails from '../components/PostTemplateDetails'
 
 class PostTemplate extends React.Component {
   render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const post = this.props.data.markdownRemark
-    const { title: postTitle, description: postDescription } = post.frontmatter
-    const description = postDescription !== null ? postDescription : subtitle
+    debugger;
+    constvtitlev= this.props.data.site.siteMetadata.title
+    const post = this.props.data.allKontentItemArticle.nodes[0].elements
 
     return (
       <Layout>
         <div>
           <Helmet>
-            <title>{`${postTitle} - ${title}`}</title>
+            <title>{`${post.titleitle} - ${title}`}</title>
             <meta name="description" content={description} />
           </Helmet>
           <PostTemplateDetails {...this.props} />
@@ -42,18 +41,49 @@ export const pageQuery = graphql`
         url
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        tagSlugs
-        slug
-      }
-      frontmatter {
-        title
-        tags
-        date
-        description
+    allKontentItemArticle(filter: {elements: {slug: {value: {eq: $slug}}}}, sort: {fields: elements___date___value, order: DESC}) {
+      nodes {
+        elements {
+          category {
+            linked_items {
+              ... on KontentItemCategory {
+                elements {
+                  title {
+                    value
+                  }
+                }
+              }
+            }
+          }
+          date {
+            value
+          }
+          description {
+            value
+          }
+          content {
+            resolvedData {
+              html
+            }
+          }
+          slug {
+            value
+          }
+          tags {
+            linked_items {
+              ... on KontentItemTag {
+                elements {
+                  title {
+                    value
+                  }
+                }
+              }
+            }
+          }
+          title {
+            value
+          }
+        }
       }
     }
   }
