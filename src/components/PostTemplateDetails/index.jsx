@@ -8,7 +8,7 @@ class PostTemplateDetails extends React.Component {
   render() {
     const { subtitle, author } = this.props.data.site.siteMetadata
     const post = this.props.data.allKontentItemArticle.nodes[0].elements
-    const tags = postt.tags
+    const tags = post.tags.linked_items
 
     const homeBlock = (
       <div>
@@ -24,8 +24,8 @@ class PostTemplateDetails extends React.Component {
           {tags &&
             tags.map((tag, i) => (
               <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.tags[i]}
+                <Link to={tag.elements.title.value} className="post-single__tags-list-item-link">
+                  {tag.elements.title.value}
                 </Link>
               </li>
             ))}
