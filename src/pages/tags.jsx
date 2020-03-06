@@ -12,7 +12,7 @@ class TagsRoute extends React.Component {
     tagsData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor, this.props.data.kontentItemSiteMetadata);
 
     const { title } = tagsData.data.site.siteMetadata
-    const tags = tagsData.data.allMarkdownRemark.group
+    const tags = tagsData.data.allKontentItemTag.nodes
     
     return (
       <Layout>
@@ -27,12 +27,12 @@ class TagsRoute extends React.Component {
                   <div className="tags">
                     <ul className="tags__list">
                       {tags.map(tag => (
-                        <li key={tag.fieldValue} className="tags__list-item">
+                        <li key={tag.elements.title.value} className="tags__list-item">
                           <Link
-                            to={`/tags/${kebabCase(tag.fieldValue)}/`}
+                            to={`/tags/${tag.elements.slug.value}/`}
                             className="tags__list-item-link"
                           >
-                            {tag.fieldValue} ({tag.totalCount})
+                            {tag.elements.title.value} (9)
                           </Link>
                         </li>
                       ))}
@@ -114,13 +114,16 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-    ) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
+    allKontentItemTag {
+      nodes {
+        elements {
+          title {
+            value
+          }
+          slug {
+            value
+          }
+        }
       }
     }
   }

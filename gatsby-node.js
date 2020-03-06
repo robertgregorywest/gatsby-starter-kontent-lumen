@@ -16,6 +16,18 @@ exports.createPages = ({ graphql, actions }) => {
 
     graphql(`
       {
+        allKontentItemTag {
+          nodes {
+            elements {
+              title {
+                value
+              }
+              slug {
+                value
+              }
+            }
+          }
+        }
         allKontentItemPage {
           nodes {
             elements {
@@ -104,6 +116,15 @@ exports.createPages = ({ graphql, actions }) => {
           context: { slug: `${node.elements.slug.value}`},
         });
       });
+
+      let tags = result.data.allKontentItemTag.nodes;
+        _.each(tags, tag => {
+          createPage({
+            path: `/tags/${tag.elements.slug.value}/`,
+            component: tagTemplate,
+            context: tag.elements.title.value,
+          })
+        })
 
       // _.each(result.data.allMarkdownRemark.edges, edge => {
       //   if (_.get(edge, 'node.frontmatter.layout') === 'post') {         
