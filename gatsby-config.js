@@ -6,35 +6,8 @@ const url = 'https://lumen.netlify.com'
 module.exports = {
   siteMetadata: {
     url,
+    // important for sitemap
     siteUrl: url,
-    title: 'Blog by John Doe',
-    subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-    copyright: '© All rights reserved.',
-    disqusShortname: '',
-    menu: [
-      {
-        label: 'Articles',
-        path: '/',
-      },
-      {
-        label: 'About me',
-        path: '/about/',
-      },
-      {
-        label: 'Contact me',
-        path: '/contact/',
-      },
-    ],
-    author: {
-      name: 'John Doe',
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '#',
-      vk: '#',
-    },
   },
   plugins: [
     {
@@ -101,34 +74,13 @@ module.exports = {
     //   },
     // },
     {
-      resolve: `@kentico/gatsby-source-kontent`,
-        options: {
-          deliveryClientConfig: {
-            projectId: `00676a8d-358c-0084-f2f2-33ed466c480a` // Fill in your Project ID
-          },
-          // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
-          languageCodenames: [
-                    `default` // Or the languages in your project (Project settings -> Localization)
-          ]
-      }
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
+      resolve: '@kentico/gatsby-source-kontent',
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 960,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: { wrapperStyle: 'margin-bottom: 1.0725rem' },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
+        deliveryClientConfig: {
+          projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
+        },
+        languageCodenames: [
+          'default', // Or the languages in your project (Project settings -> Localization)
         ],
       },
     },

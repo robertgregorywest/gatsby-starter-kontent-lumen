@@ -6,7 +6,7 @@ import PostTemplateDetails from '../components/PostTemplateDetails'
 
 class ArticleTemplate extends React.Component {
   render() {
-    const title= this.props.data.site.siteMetadata.title
+    const title = this.props.data.kontentItemSiteMetadata.elements.title.value
     const article = this.props.data.allKontentItemArticle.nodes[0]
 
     return (
@@ -27,19 +27,6 @@ export default ArticleTemplate
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        author {
-          name
-          twitter
-        }
-        disqusShortname
-        url
-      }
-    }
     kontentItemAuthor(system: {codename: {eq: "author"}}) {
       elements {
         bio {

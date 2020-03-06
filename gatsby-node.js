@@ -129,19 +129,19 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: `/${node.elements.slug.value}/`,
           component: slash(pageTemplate),
-          context: { slug: `${node.elements.slug.value}`},
-        });
-      });
+          context: { slug: `${node.elements.slug.value}` },
+        })
+      })
 
       _.each(result.data.allKontentItemArticle.nodes, node => {
         createPage({
           path: `/articles/${node.elements.slug.value}/`,
           component: slash(articleTemplate),
-          context: { slug: `${node.elements.slug.value}`},
-        });
-      });
+          context: { slug: `${node.elements.slug.value}` },
+        })
+      })
 
-      let tags = result.data.allKontentItemTag.nodes;
+      const tags = result.data.allKontentItemTag.nodes
       _.each(tags, tag => {
         const tagCodename = tag.system.codename
         const tagTitle = tag.elements.title.value
@@ -152,7 +152,7 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      let categories = result.data.allKontentItemCategory.nodes;
+      const categories = result.data.allKontentItemCategory.nodes
       _.each(categories, category => {
         const categoryCodename = category.system.codename
         const categoryTitle = category.elements.title.value
