@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar'
 
 class CategoriesRoute extends React.Component {
   render() {
-    const categoriesData = this.props
+    const categoriesData = this.props;
     const title = categoriesData.data.kontentItemSiteMetadata.elements.title.value
     const categories = this.props.data.allKontentItemCategory.nodes
 

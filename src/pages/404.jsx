@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 
 class NotFoundRoute extends React.Component {
   render() {
-    const routeData = this.props
+    const routeData = this.props;
 
     return (
       <Layout>

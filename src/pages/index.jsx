@@ -7,10 +7,10 @@ import Sidebar from '../components/Sidebar'
 
 class IndexRoute extends React.Component {
   render() {
-    const routeData = this.props
+    const routeData = this.props;
     const items = []
-    const title = routeData.data.kontentItemSiteMetadata.elements.title.value
-    const subtitle = routeData.data.kontentItemSiteMetadata.elements.subtitle.value
+    const title = routeData.data.kontentItemSiteMetadata.elements.title.value;
+    const subtitle = routeData.data.kontentItemSiteMetadata.elements.subtitle.value;
     const articles = routeData.data.allKontentItemArticle.nodes
     articles.forEach(article => {
       items.push(<Post data={article} key={article.elements.slug.value} />)

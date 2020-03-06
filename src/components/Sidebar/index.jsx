@@ -7,12 +7,12 @@ import './style.scss'
 
 class Sidebar extends React.Component {
   render() {
-    const sidebarData = this.props
-    const author = sidebarData.data.kontentItemAuthor
-    const menu = sidebarData.data.kontentItemMenu
+    const sidebarData= this.props
+    const author = sidebarData.data.kontentItemAuthor;
+    const menu = sidebarData.data.kontentItemMenu;
     const copyright = sidebarData.data.kontentItemSiteMetadata.elements.copyright.value
     const isHomePage = get(sidebarData, 'pathname', '/') === '/'
-    const profilePic = this.props.data.kontentItemAuthor.elements.avatar_image.value[0].url
+    const profilePic = this.props.data.kontentItemAuthor.elements.avatar_image.value[0].url;
 
     /* eslint-disable jsx-a11y/img-redundant-alt */
     const authorBlock = (

@@ -6,9 +6,9 @@ import PageTemplateDetails from '../components/PageTemplateDetails'
 
 class PageTemplate extends React.Component {
   render() {
-    const pageTemplateData = this.props
-    const title = pageTemplateData.data.kontentItemSiteMetadata.elements.title.value
-    const subtitle = pageTemplateData.data.kontentItemPage.elements.title.value
+    const pageTemplateData = this.props;
+    const title = pageTemplateData.data.kontentItemSiteMetadata.elements.title.value;
+    const subtitle = pageTemplateData.data.kontentItemPage.elements.title.value;
 
     return (
       <Layout>
