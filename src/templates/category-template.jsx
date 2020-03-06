@@ -102,6 +102,9 @@ export const pageQuery = graphql`
                   title {
                     value
                   }
+                  slug {
+                    value
+                  }
                 }
               }
             }

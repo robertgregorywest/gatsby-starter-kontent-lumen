@@ -18,6 +18,9 @@ exports.createPages = ({ graphql, actions }) => {
       {
         allKontentItemTag {
           nodes {
+            system {
+              codename
+            }
             elements {
               title {
                 value
@@ -49,6 +52,9 @@ exports.createPages = ({ graphql, actions }) => {
               category {
                 linked_items {
                   ... on KontentItemCategory {
+                    system {
+                      codename
+                    }
                     elements {
                       title {
                         value
@@ -77,6 +83,9 @@ exports.createPages = ({ graphql, actions }) => {
               tags {
                 linked_items {
                   ... on KontentItemTag {
+                    system {
+                      codename
+                    }
                     elements {
                       title {
                         value
@@ -119,10 +128,12 @@ exports.createPages = ({ graphql, actions }) => {
 
       let tags = result.data.allKontentItemTag.nodes;
         _.each(tags, tag => {
+          const tagCodename = tag.system.codename
+          const tagTitle = tag.elements.title.value
           createPage({
             path: `/tags/${tag.elements.slug.value}/`,
             component: tagTemplate,
-            context: tag.elements.title.value,
+            context: { tagCodename, tagTitle },
           })
         })
 

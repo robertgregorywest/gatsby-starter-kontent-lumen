@@ -7,14 +7,14 @@ import PostTemplateDetails from '../components/PostTemplateDetails'
 class PostTemplate extends React.Component {
   render() {
     const title= this.props.data.site.siteMetadata.title
-    const post = this.props.data.allKontentItemArticle.nodes[0].elements
+    const article = this.props.data.allKontentItemArticle.nodes[0]
 
     return (
       <Layout>
         <div>
           <Helmet>
-            <title>{`${post.title.value} - ${title}`}</title>
-            <meta name="description" content={post.description.value} />
+            <title>{`${article.elements.title.value} - ${title}`}</title>
+            <meta name="description" content={article.elements.description.value} />
           </Helmet>
           <PostTemplateDetails {...this.props} />
         </div>
@@ -50,6 +50,9 @@ export const pageQuery = graphql`
                   title {
                     value
                   }
+                  slug {
+                    value
+                  }
                 }
               }
             }
@@ -71,6 +74,9 @@ export const pageQuery = graphql`
           tags {
             linked_items {
               ... on KontentItemTag {
+                system {
+                  codename
+                }
                 elements {
                   title {
                     value

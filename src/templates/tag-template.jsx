@@ -11,13 +11,13 @@ class TagTemplate extends React.Component {
     let pageTemplateData = this.props;
     pageTemplateData.data.site = getSiteInfo(pageTemplateData.data.kontentItemMenu, pageTemplateData.data.kontentItemAuthor, pageTemplateData.data.kontentItemSiteMetadata);
 
-    const { title } = pageTemplateData.data.site.siteMetadata
-    const { tag } = pageTemplateData.pageContext
+    const title = pageTemplateData.data.site.title
+    const tagTitle = pageTemplateData.pageContext.tagTitle
 
     return (
       <Layout>
         <div>
-          <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
+          <Helmet title={`All Posts tagged as "${tagTitle}" - ${title}`} />
           <Sidebar {...pageTemplateData} />
           <TagTemplateDetails {...pageTemplateData} />
         </div>
@@ -29,7 +29,7 @@ class TagTemplate extends React.Component {
 export default TagTemplate
 
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
+  query TagPage($tagCodename: String) {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         copyright {
@@ -92,7 +92,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allKontentItemArticle(filter: {elements: {tags: {itemCodenames: {in: [$tag]}}}}, sort: {fields: elements___date___value, order: DESC}) {
+    allKontentItemArticle(filter: {elements: {tags: {itemCodenames: {in: [$tagCodename]}}}}, sort: {fields: elements___date___value, order: DESC}) {
       nodes {
         elements {
           category {
@@ -100,6 +100,9 @@ export const pageQuery = graphql`
               ... on KontentItemCategory {
                 elements {
                   title {
+                    value
+                  }
+                  slug {
                     value
                   }
                 }

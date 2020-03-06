@@ -14,9 +14,9 @@ class IndexRoute extends React.Component {
 
     const items = []
     const { title, subtitle } = routeData.data.site;
-    const posts = routeData.data.allKontentItemArticle.nodes
-    posts.forEach(post => {
-      items.push(<Post data={post.elements} key={post.elements.slug.value} />)
+    const articles = routeData.data.allKontentItemArticle.nodes
+    articles.forEach(article => {
+      items.push(<Post data={article} key={article.elements.slug.value} />)
     })
 
     return (
