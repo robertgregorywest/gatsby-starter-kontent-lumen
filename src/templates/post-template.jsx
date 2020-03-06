@@ -40,6 +40,52 @@ export const pageQuery = graphql`
         url
       }
     }
+    kontentItemAuthor(system: {codename: {eq: "author"}}) {
+      elements {
+        bio {
+          value
+        }
+        email {
+          value
+        }
+        github {
+          value
+        }
+        name {
+          value
+        }
+        rss {
+          value
+        }
+        telegram {
+          value
+        }
+        twitter {
+          value
+        }
+        vk {
+          value
+        }
+        avatar_image {
+          value {
+            url
+          }
+        }
+      }
+    }
+    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
+      elements {
+        copyright {
+          value
+        }
+        subtitle {
+          value
+        }
+        title {
+          value
+        }
+      }
+    }
     allKontentItemArticle(filter: {elements: {slug: {value: {eq: $slug}}}}, sort: {fields: elements___date___value, order: DESC}) {
       nodes {
         elements {
@@ -79,6 +125,9 @@ export const pageQuery = graphql`
                 }
                 elements {
                   title {
+                    value
+                  }
+                  slug {
                     value
                   }
                 }

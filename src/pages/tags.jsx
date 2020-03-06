@@ -4,13 +4,10 @@ import Helmet from 'react-helmet'
 import kebabCase from 'lodash/kebabCase'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class TagsRoute extends React.Component {
   render() {
-    let tagsData = this.props;
-    tagsData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor, this.props.data.kontentItemSiteMetadata);
-
+    const tagsData = this.props;
     const { title } = tagsData.data.site.siteMetadata
     const tags = tagsData.data.allKontentItemTag.nodes
     

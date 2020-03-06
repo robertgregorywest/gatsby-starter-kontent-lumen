@@ -3,13 +3,10 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class CategoriesRoute extends React.Component {
   render() {
-    let categoriesData = this.props;
-    categoriesData.data.site = {};
-    categoriesData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor);
+    const categoriesData = this.props;
     const { title } = categoriesData.data.site
     const categories = this.props.data.allKontentItemCategory.nodes
 

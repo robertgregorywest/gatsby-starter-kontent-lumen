@@ -3,18 +3,18 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PageTemplateDetails from '../components/PageTemplateDetails'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class PageTemplate extends React.Component {
   render() {
-    let pageTemplateData = this.props;
-    pageTemplateData.data.site = getSiteInfo(pageTemplateData.data.kontentItemMenu, pageTemplateData.data.kontentItemAuthor, pageTemplateData.data.kontentItemSiteMetadata);
+    const pageTemplateData = this.props;
+    const title = pageTemplateData.data.kontentItemSiteMetadata.elements.title.value;
+    const subtitle = pageTemplateData.data.kontentItemPage.elements.title.value;
 
     return (
       <Layout>
         <div>
           <Helmet>
-            <title>{`${pageTemplateData.data.site.title} - ${pageTemplateData.data.kontentItemPage.elements.title.value}`}</title>
+            <title>{`${title} - ${subtitle}`}</title>
             <meta name="description" content={pageTemplateData.data.kontentItemPage.elements.meta_description.value} />
           </Helmet>
           <PageTemplateDetails {...pageTemplateData} />

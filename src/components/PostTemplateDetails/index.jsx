@@ -6,7 +6,9 @@ import './style.scss'
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata
+    const postTemplateData = this.props;
+    const subtitle = postTemplateData.data.kontentItemSiteMetadata.elements.subtitle.value;
+    const author = postTemplateData.data.kontentItemAuthor;
     const post = this.props.data.allKontentItemArticle.nodes[0].elements
     const tags = post.tags.linked_items
 
@@ -24,7 +26,7 @@ class PostTemplateDetails extends React.Component {
           {tags &&
             tags.map((tag, i) => (
               <li className="post-single__tags-list-item" key={tag.system.codename}>
-                <Link to={`/tags/${tag.system.codename}`} className="post-single__tags-list-item-link">
+                <Link to={`/tags/${tag.elements.slug.value}`} className="post-single__tags-list-item-link">
                   {tag.elements.title.value}
                 </Link>
               </li>

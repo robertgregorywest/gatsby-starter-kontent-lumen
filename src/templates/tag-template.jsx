@@ -4,14 +4,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 import TagTemplateDetails from '../components/TagTemplateDetails'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class TagTemplate extends React.Component {
   render() {
-    let pageTemplateData = this.props;
-    pageTemplateData.data.site = getSiteInfo(pageTemplateData.data.kontentItemMenu, pageTemplateData.data.kontentItemAuthor, pageTemplateData.data.kontentItemSiteMetadata);
-
-    const title = pageTemplateData.data.site.title
+    const pageTemplateData = this.props;
+    const title = pageTemplateData.data.kontentItemSiteMetadata.elements.title.value
     const tagTitle = pageTemplateData.pageContext.tagTitle
 
     return (

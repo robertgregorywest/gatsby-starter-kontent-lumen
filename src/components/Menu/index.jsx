@@ -8,14 +8,14 @@ class Menu extends React.Component {
 
     const menuBlock = (
       <ul className="menu__list">
-        {menu.map(item => (
-          <li className="menu__list-item" key={item.path}>
+        {menu.elements.menu_items.linked_items.map(item => (
+          <li className="menu__list-item" key={item.id}>
             <Link
-              to={item.path}
+              to={item.elements.path.value}
               className="menu__list-item-link"
               activeClassName="menu__list-item-link menu__list-item-link--active"
             >
-              {item.label}
+              {item.elements.label.value}
             </Link>
           </li>
         ))}

@@ -7,13 +7,11 @@ import './style.scss'
 
 class Sidebar extends React.Component {
   render() {
-    const { location } = this.props
-    const {
-      author,
-      copyright,
-      menu,
-    } = this.props.data.site.siteMetadata
-    const isHomePage = get(location, 'pathname', '/') === '/'
+    const sidebarData= this.props
+    const author = sidebarData.data.kontentItemAuthor;
+    const menu = sidebarData.data.kontentItemMenu;
+    const copyright = sidebarData.data.kontentItemSiteMetadata.elements.copyright.value
+    const isHomePage = get(sidebarData, 'pathname', '/') === '/'
     const profilePic = this.props.data.kontentItemAuthor.elements.avatar_image.value[0].url;
 
     /* eslint-disable jsx-a11y/img-redundant-alt */
@@ -41,7 +39,7 @@ class Sidebar extends React.Component {
             </Link>
           </h2>
         )}
-        <p className="sidebar__author-subtitle">{author.bio}</p>
+        <p className="sidebar__author-subtitle">{author.elements.bio.value}</p>
       </div>
     )
     /* eslint-enable jsx-a11y/img-redundant-alt */

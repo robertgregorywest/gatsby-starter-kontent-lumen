@@ -4,13 +4,10 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class CategoryTemplate extends React.Component {
   render() {
-    let categoryTemplateData = this.props;
-    categoryTemplateData.data.site = getSiteInfo(categoryTemplateData.data.kontentItemMenu, categoryTemplateData.data.kontentItemAuthor, categoryTemplateData.data.kontentItemSiteMetadata);
-
+    const categoryTemplateData = this.props;
     const siteTitle = categoryTemplateData.data.kontentItemSiteMetadata.elements.title.value
     const categoryTitle = categoryTemplateData.pageContext.categoryTitle
 

@@ -2,12 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Sidebar from '../components/Sidebar'
 import Layout from '../components/Layout'
-import { getSiteInfo } from '../utils/kontentItemNodeUtils'
 
 class NotFoundRoute extends React.Component {
   render() {
-    let routeData = this.props;
-    routeData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor)
+    const routeData = this.props;
 
     return (
       <Layout>

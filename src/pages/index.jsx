@@ -4,16 +4,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Post from '../components/Post'
 import Sidebar from '../components/Sidebar'
-import { getSiteInfo }  from '../utils/kontentItemNodeUtils'
 
 class IndexRoute extends React.Component {
   render() {
-    let routeData = this.props;
-    routeData.data.site = {};
-    routeData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor, this.props.data.kontentItemSiteMetadata);
-
+    const routeData = this.props;
     const items = []
-    const { title, subtitle } = routeData.data.site;
+    const title = routeData.data.kontentItemSiteMetadata.elements.title.value;
+    const subtitle = routeData.data.kontentItemSiteMetadata.elements.subtitle.value;
     const articles = routeData.data.allKontentItemArticle.nodes
     articles.forEach(article => {
       items.push(<Post data={article} key={article.elements.slug.value} />)
