@@ -24,9 +24,9 @@
   "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@kentico/gatsby-source-kontent": "^4.3.0",
+    "@kentico/gatsby-source-kontent": "^4.4.0",
     "bluebird": "^3.5.1",
-    "gatsby": "^2.19.21",
+    "gatsby": "^2.19.29",
     "gatsby-cli": "^2.9.0",
     "gatsby-plugin-catch-links": "^2.0.4",
     "gatsby-plugin-feed": "^2.0.8",
