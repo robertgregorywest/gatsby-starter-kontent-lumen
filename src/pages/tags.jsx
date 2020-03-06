@@ -86,6 +86,9 @@ export const pageQuery = graphql`
     }
     kontentItemAuthor(system: {codename: {eq: "author"}}) {
       elements {
+        bio {
+          value
+        }
         email {
           value
         }
