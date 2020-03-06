@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import kebabCase from 'lodash/kebabCase'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 
 class TagsRoute extends React.Component {
   render() {
-    const tagsData = this.props;
+    const tagsData = this.props
     const title = tagsData.data.kontentItemSiteMetadata.elements.title.value
     const tags = tagsData.data.allKontentItemTag.nodes
-    
+
     return (
       <Layout>
         <div>

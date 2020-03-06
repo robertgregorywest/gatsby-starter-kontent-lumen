@@ -101,16 +101,15 @@ module.exports = {
     //   },
     // },
     {
-      resolve: `@kentico/gatsby-source-kontent`,
-        options: {
-          deliveryClientConfig: {
-            projectId: `00676a8d-358c-0084-f2f2-33ed466c480a` // Fill in your Project ID
-          },
-          // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
-          languageCodenames: [
-                    `default` // Or the languages in your project (Project settings -> Localization)
-          ]
-      }
+      resolve: '@kentico/gatsby-source-kontent',
+      options: {
+        deliveryClientConfig: {
+          projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
+        },
+        languageCodenames: [
+          'default', // Or the languages in your project (Project settings -> Localization)
+        ],
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',

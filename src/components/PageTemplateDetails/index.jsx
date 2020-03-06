@@ -4,8 +4,8 @@ import './style.scss'
 
 class PageTemplateDetails extends React.Component {
   render() {
-    const pageTemplateData = this.props.data;
-    const kontentItemPage = pageTemplateData.kontentItemPage;
+    const pageTemplateData = this.props.data
+    const kontentItemPage = pageTemplateData.kontentItemPage
 
     return (
       <div>
@@ -17,7 +17,9 @@ class PageTemplateDetails extends React.Component {
               <div
                 className="page__body"
                 /* eslint-disable-next-line react/no-danger */
-                dangerouslySetInnerHTML={{ __html: kontentItemPage.elements.description.resolvedData.html }}
+                dangerouslySetInnerHTML={
+                  { __html: kontentItemPage.elements.description.resolvedData.html }
+                }
               />
             </div>
           </div>
