@@ -7,7 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve('./src/templates/post-template.jsx')
+    const articleTemplate = path.resolve('./src/templates/article-template.jsx')
     const pageTemplate = path.resolve('./src/templates/page-template.jsx')
     const tagTemplate = path.resolve('./src/templates/tag-template.jsx')
     const categoryTemplate = path.resolve(
@@ -136,7 +136,7 @@ exports.createPages = ({ graphql, actions }) => {
       _.each(result.data.allKontentItemArticle.nodes, node => {
         createPage({
           path: `/articles/${node.elements.slug.value}/`,
-          component: slash(postTemplate),
+          component: slash(articleTemplate),
           context: { slug: `${node.elements.slug.value}`},
         });
       });

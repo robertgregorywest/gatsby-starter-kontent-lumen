@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostTemplateDetails from '../components/PostTemplateDetails'
 
-class PostTemplate extends React.Component {
+class ArticleTemplate extends React.Component {
   render() {
     const title= this.props.data.site.siteMetadata.title
     const article = this.props.data.allKontentItemArticle.nodes[0]
@@ -23,7 +23,7 @@ class PostTemplate extends React.Component {
   }
 }
 
-export default PostTemplate
+export default ArticleTemplate
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
