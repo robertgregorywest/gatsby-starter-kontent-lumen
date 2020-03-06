@@ -16,6 +16,21 @@ exports.createPages = ({ graphql, actions }) => {
 
     graphql(`
       {
+        allKontentItemCategory {
+          nodes {
+            system {
+              codename
+            }
+            elements {
+              slug {
+                value
+              }
+              title {
+                value
+              }
+            }
+          }
+        }
         allKontentItemTag {
           nodes {
             system {
@@ -127,15 +142,27 @@ exports.createPages = ({ graphql, actions }) => {
       });
 
       let tags = result.data.allKontentItemTag.nodes;
-        _.each(tags, tag => {
-          const tagCodename = tag.system.codename
-          const tagTitle = tag.elements.title.value
-          createPage({
-            path: `/tags/${tag.elements.slug.value}/`,
-            component: tagTemplate,
-            context: { tagCodename, tagTitle },
-          })
+      _.each(tags, tag => {
+        const tagCodename = tag.system.codename
+        const tagTitle = tag.elements.title.value
+        createPage({
+          path: `/tags/${tag.elements.slug.value}/`,
+          component: tagTemplate,
+          context: { tagCodename, tagTitle },
         })
+      })
+
+      let categories = result.data.allKontentItemCategory.nodes;
+      _.each(categories, category => {
+        const categoryCodename = category.system.codename
+        const categoryTitle = category.elements.title.value
+        createPage({
+          path: `/categories/${category.elements.slug.value}/`,
+          component: categoryTemplate,
+          context: { categoryCodename, categoryTitle },
+        })
+      })
+
 
       // _.each(result.data.allMarkdownRemark.edges, edge => {
       //   if (_.get(edge, 'node.frontmatter.layout') === 'post') {         

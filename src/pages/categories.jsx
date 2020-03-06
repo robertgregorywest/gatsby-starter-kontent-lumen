@@ -12,7 +12,7 @@ class CategoriesRoute extends React.Component {
     categoriesData.data.site = {};
     categoriesData.data.site = getSiteInfo(this.props.data.kontentItemMenu, this.props.data.kontentItemAuthor);
     const { title } = categoriesData.data.site
-    const categories = this.props.data.allMarkdownRemark.group
+    const categories = this.props.data.allKontentItemCategory.nodes
 
     return (
       <Layout>
@@ -28,16 +28,14 @@ class CategoriesRoute extends React.Component {
                     <ul className="categories__list">
                       {categories.map(category => (
                         <li
-                          key={category.fieldValue}
+                          key={category.system.codename}
                           className="categories__list-item"
                         >
                           <Link
-                            to={`/categories/${kebabCase(
-                              category.fieldValue
-                            )}/`}
+                            to={`/categories/${category.elements.slug.value}/`}
                             className="categories__list-item-link"
                           >
-                            {category.fieldValue} ({category.totalCount})
+                            {category.elements.slug.value} ({category.usedByContentItems.length})
                           </Link>
                         </li>
                       ))}
@@ -56,7 +54,7 @@ class CategoriesRoute extends React.Component {
 export default CategoriesRoute
 
 export const pageQuery = graphql`
-  query CategoryesQuery {
+  query CategoriesQuery {
     kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
       elements {
         menu_items {
@@ -106,13 +104,24 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-    ) {
-      group(field: frontmatter___category) {
-        fieldValue
-        totalCount
+    allKontentItemCategory {
+      nodes {
+        elements {
+          slug {
+            value
+          }
+          title {
+            value
+          }
+        }
+        usedByContentItems {
+          system {
+            codename
+          }
+        }
+        system {
+          codename
+        }
       }
     }
   }

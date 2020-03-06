@@ -23,7 +23,7 @@ class Post extends React.Component {
           </time>
           <span className="post__meta-divider" />
           <span className="post__meta-category" key={categorySlug}>
-            <Link to={categorySlug} className="post__meta-category-link">
+            <Link to={`/categories/${categorySlug}/`} className="post__meta-category-link">
               {category}
             </Link>
           </span>

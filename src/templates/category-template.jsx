@@ -29,7 +29,7 @@ class CategoryTemplate extends React.Component {
 export default CategoryTemplate
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
+  query CategoryPage($categoryCodename: String) {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         copyright {
@@ -92,8 +92,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allKontentItemArticle(filter: {elements: {category: {itemCodenames: {eq: $category}}}}) {
+    allKontentItemArticle(filter: {elements: {category: {itemCodenames: {in: [$categoryCodename]}}}}) {
       nodes {
+        system {
+          codename
+        }
         elements {
           category {
             linked_items {

@@ -7,7 +7,7 @@ class CategoryTemplateDetails extends React.Component {
     const { category } = this.props.pageContext
     const articles = this.props.data.allKontentItemArticle.nodes
     articles.forEach(article => {
-      items.push(<Post data={article} key={article.node.fields.slug} />)
+      items.push(<Post data={article} key={article.system.codename} />)
     })
 
     return (
