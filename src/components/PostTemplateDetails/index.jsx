@@ -24,7 +24,7 @@ class PostTemplateDetails extends React.Component {
           {tags &&
             tags.map((tag, i) => (
               <li className="post-single__tags-list-item" key={tag}>
-                <Link to={`/tags/${tag.elements.title.value}`} className="post-single__tags-list-item-link">
+                <Link to={`/tags/${tag.system.codename}`} className="post-single__tags-list-item-link">
                   {tag.elements.title.value}
                 </Link>
               </li>
