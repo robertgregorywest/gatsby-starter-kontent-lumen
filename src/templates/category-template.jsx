@@ -11,13 +11,13 @@ class CategoryTemplate extends React.Component {
     let categoryTemplateData = this.props;
     categoryTemplateData.data.site = getSiteInfo(categoryTemplateData.data.kontentItemMenu, categoryTemplateData.data.kontentItemAuthor, categoryTemplateData.data.kontentItemSiteMetadata);
 
-    const { title } = categoryTemplateData.data.site.siteMetadata
-    const { category } = categoryTemplateData.pageContext
+    const siteTitle = categoryTemplateData.data.kontentItemSiteMetadata.elements.title.value
+    const categoryTitle = categoryTemplateData.pageContext.categoryTitle
 
     return (
       <Layout>
         <div>
-          <Helmet title={`${category} - ${title}`} />
+          <Helmet title={`${categoryTitle} - ${siteTitle}`} />
           <Sidebar {...categoryTemplateData} />
           <CategoryTemplateDetails {...categoryTemplateData} />
         </div>
