@@ -33,6 +33,19 @@ export default NotFoundRoute
 
 export const pageQuery = graphql`
   query NotFoundQuery {
+    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
+      elements {
+        copyright {
+          value
+        }
+        subtitle {
+          value
+        }
+        title {
+          value
+        }
+      }
+    }
     kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
       elements {
         menu_items {
