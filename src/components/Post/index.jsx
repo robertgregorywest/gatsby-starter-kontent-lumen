@@ -10,7 +10,7 @@ class Post extends React.Component {
     const category = this.props.data.category.linked_items[0].elements.title.value;
     const categorySlug = this.props.data.category.linked_items[0].elements.slug.value;
     const description = this.props.data.description.value;
-    const slug = this.props.data.slug.value;
+    const slug = `/articles/${this.props.data.slug.value}`;
 
     return (
       <div className="post">

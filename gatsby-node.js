@@ -111,7 +111,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       _.each(result.data.allKontentItemArticle.nodes, node => {
         createPage({
-          path: `/${node.elements.slug.value}/`,
+          path: `/articles/${node.elements.slug.value}/`,
           component: slash(postTemplate),
           context: { slug: `${node.elements.slug.value}`},
         });
