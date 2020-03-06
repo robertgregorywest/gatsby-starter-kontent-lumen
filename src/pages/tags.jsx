@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar'
 class TagsRoute extends React.Component {
   render() {
     const tagsData = this.props;
-    const { title } = tagsData.data.site.siteMetadata
+    const title = tagsData.data.kontentItemSiteMetadata.elements.title.value
     const tags = tagsData.data.allKontentItemTag.nodes
     
     return (

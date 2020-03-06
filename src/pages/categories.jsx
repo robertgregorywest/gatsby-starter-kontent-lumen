@@ -7,7 +7,7 @@ import Sidebar from '../components/Sidebar'
 class CategoriesRoute extends React.Component {
   render() {
     const categoriesData = this.props;
-    const { title } = categoriesData.data.site
+    const title = categoriesData.data.kontentItemSiteMetadata.elements.title.value
     const categories = this.props.data.allKontentItemCategory.nodes
 
     return (
@@ -51,6 +51,19 @@ export default CategoriesRoute
 
 export const pageQuery = graphql`
   query CategoriesQuery {
+    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
+      elements {
+        copyright {
+          value
+        }
+        subtitle {
+          value
+        }
+        title {
+          value
+        }
+      }
+    }
     kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
       elements {
         menu_items {
