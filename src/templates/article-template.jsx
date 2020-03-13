@@ -27,19 +27,6 @@ export default ArticleTemplate
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        author {
-          name
-          twitter
-        }
-        disqusShortname
-        url
-      }
-    }
     kontentItemAuthor(system: {codename: {eq: "author"}}) {
       elements {
         bio {
