@@ -39,7 +39,7 @@ class PostTemplateDetails extends React.Component {
       <div>
         <Disqus
           postNode={post}
-          siteMetadata={this.props.data.site.siteMetadata}
+          siteMetadata={this.props.data.kontentItemSiteMetadata.elements.title.value}
         />
       </div>
     )
