@@ -23,7 +23,7 @@ class IndexRoute extends React.Component {
             <title>{title}</title>
             <meta name="description" content={subtitle} />
           </Helmet>
-          <Sidebar {...routeData} />
+          <Sidebar />
           <div className="content">
             <div className="content__inner">{items}</div>
           </div>
@@ -39,66 +39,11 @@ export const pageQuery = graphql`
   query IndexQuery {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
-        copyright {
-          value
-        }
         subtitle {
           value
         }
         title {
           value
-        }
-      }
-    }
-    kontentItemMenu(system: {codename: {eq: "navigation_menu"}}) {
-      elements {
-        menu_items {
-          linked_items {
-            ... on KontentItemMenuItem {
-              id
-              elements {
-                label {
-                  value
-                }
-                path {
-                  value
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    kontentItemAuthor(system: {codename: {eq: "author"}}) {
-      elements {
-        bio {
-          value
-        }
-        email {
-          value
-        }
-        github {
-          value
-        }
-        name {
-          value
-        }
-        rss {
-          value
-        }
-        telegram {
-          value
-        }
-        twitter {
-          value
-        }
-        vk {
-          value
-        }
-        avatar_image {
-          value {
-            url
-          }
         }
       }
     }

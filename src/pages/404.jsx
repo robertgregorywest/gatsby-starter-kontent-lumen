@@ -5,12 +5,10 @@ import Layout from '../components/Layout'
 
 class NotFoundRoute extends React.Component {
   render() {
-    const routeData = this.props
-
     return (
       <Layout>
         <div>
-          <Sidebar {...routeData} />
+          <Sidebar />
           <div className="content">
             <div className="content__inner">
               <div className="page">
@@ -35,69 +33,8 @@ export const pageQuery = graphql`
   query NotFoundQuery {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
-        copyright {
-          value
-        }
-        subtitle {
-          value
-        }
-        title {
-          value
-        }
         page_not_found_message {
           value
-        }
-      }
-    }
-    kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
-      elements {
-        menu_items {
-          linked_items {
-            ... on KontentItemMenuItem {
-              id
-              elements {
-                label {
-                  value
-                }
-                path {
-                  value
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    kontentItemAuthor(system: { codename: { eq: "author" } }) {
-      elements {
-        bio {
-          value
-        }
-        email {
-          value
-        }
-        github {
-          value
-        }
-        name {
-          value
-        }
-        rss {
-          value
-        }
-        telegram {
-          value
-        }
-        twitter {
-          value
-        }
-        vk {
-          value
-        }
-        avatar_image {
-          value {
-            url
-          }
         }
       }
     }

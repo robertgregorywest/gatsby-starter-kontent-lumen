@@ -5,7 +5,6 @@ import '../../assets/fonts/fontello-771c82e0/css/fontello.css'
 class Links extends React.Component {
   render() {
     const author = this.props.data
-    debugger;
     const links = {
       telegram: author.elements.telegram.value,
       twitter: author.elements.twitter.value,
