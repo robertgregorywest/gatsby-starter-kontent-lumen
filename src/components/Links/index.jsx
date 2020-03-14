@@ -5,13 +5,14 @@ import '../../assets/fonts/fontello-771c82e0/css/fontello.css'
 class Links extends React.Component {
   render() {
     const author = this.props.data
+    debugger;
     const links = {
-      telegram: author.telegram,
-      twitter: author.twitter,
-      github: author.github,
-      vk: author.vk,
-      rss: author.rss,
-      email: author.email,
+      telegram: author.elements.telegram.value,
+      twitter: author.elements.twitter.value,
+      github: author.elements.github.value,
+      vk: author.elements.vk.value,
+      // rss: author.elements.rss.value,
+      email: author.elements.email.value,
     }
 
     return (
@@ -58,11 +59,11 @@ class Links extends React.Component {
           </li>
         </ul>
         <ul className="links__list">
-          <li className="links__list-item">
+          {/* <li className="links__list-item">
             <a href={links.rss}>
               <i className="icon-rss" />
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     )
