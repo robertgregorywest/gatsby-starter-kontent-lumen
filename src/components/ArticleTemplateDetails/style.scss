@@ -1,15 +1,15 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
 
-.post-single {
+.article-single {
     &__inner {
-        max-width: $layout-post-single-max-width;
+        max-width: $layout-article-single-max-width;
         padding: 0 15px;
         margin: 0 auto;
     }
     &__title {
         font-size: $typographic-base-font-size * 2;
-        max-width: $layout-post-single-width;
+        max-width: $layout-article-single-width;
         margin-left: auto;
         margin-right: auto;
         font-weight: 600;
@@ -27,7 +27,7 @@
                 margin-top: 0;
                 @include padding(1, 0);
                 & p {
-                    max-width: $layout-post-single-width;
+                    max-width: $layout-article-single-width;
                     font-size: $typographic-base-font-size * 1.6817;
                     margin-top: 0;
                     @include margin-bottom(1);
@@ -39,19 +39,19 @@
             text-decoration: underline;
         }
         & .gatsby-highlight {
-            max-width: $layout-post-single-width;
+            max-width: $layout-article-single-width;
             margin-left: 15px;
             margin-right: 15px;
             @include margin-bottom(1);
         }
         & :not(div) {
-            max-width: $layout-post-single-width;
+            max-width: $layout-article-single-width;
             margin-left: auto;
             margin-right: auto;
         }
     }
     &__footer {
-        max-width: $layout-post-single-width;
+        max-width: $layout-article-single-width;
         margin-left: 15px;
         margin-right: 15px;
         @include line-height(1);
@@ -64,7 +64,7 @@
         }
     }
     &__date {
-        max-width: $layout-post-single-width;
+        max-width: $layout-article-single-width;
         margin-left: auto;
         margin-right: auto;
     }
@@ -120,7 +120,7 @@
 }
 
 @include breakpoint-sm {
-    .post-single {
+    .article-single {
         &__footer {
             margin-left: auto;
             margin-right: auto;
@@ -135,7 +135,7 @@
 }
 
 @include breakpoint-md {
-    .post-single {
+    .article-single {
         &__inner {
             padding: 0;
         }

@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Post from '../components/Post'
+import Article from '../components/Article'
 import Sidebar from '../components/Sidebar'
 
 class IndexRoute extends React.Component {
@@ -13,7 +13,7 @@ class IndexRoute extends React.Component {
     const subtitle = routeData.data.kontentItemSiteMetadata.elements.subtitle.value
     const articles = routeData.data.allKontentItemArticle.nodes
     articles.forEach(article => {
-      items.push(<Post data={article} key={article.elements.slug.value} />)
+      items.push(<Article data={article} key={article.elements.slug.value} />)
     })
 
     return (

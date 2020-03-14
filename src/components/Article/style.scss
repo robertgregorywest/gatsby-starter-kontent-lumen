@@ -1,7 +1,7 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
 
-.post {
+.article {
     @include margin-bottom(1.25);
     &:last-child {
         @include margin-bottom(.5);

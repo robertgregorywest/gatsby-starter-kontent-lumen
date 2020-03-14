@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostTemplateDetails from '../components/PostTemplateDetails'
+import ArticleTemplateDetails from '../components/ArticleTemplateDetails'
 
 class ArticleTemplate extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class ArticleTemplate extends React.Component {
             <title>{`${article.elements.title.value} - ${title}`}</title>
             <meta name="description" content={article.elements.description.value} />
           </Helmet>
-          <PostTemplateDetails {...this.props} />
+          <ArticleTemplateDetails {...this.props} />
         </div>
       </Layout>
     )
@@ -26,7 +26,7 @@ class ArticleTemplate extends React.Component {
 export default ArticleTemplate
 
 export const pageQuery = graphql`
-  query PostBySlug($slug: String!) {
+  query ArticleBySlug($slug: String!) {
     kontentItemAuthor(system: {codename: {eq: "author"}}) {
       elements {
         bio {

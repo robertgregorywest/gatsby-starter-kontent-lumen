@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../Post'
+import Article from '../Article'
 
 class TagTemplateDetails extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class TagTemplateDetails extends React.Component {
     const articles = this.props.data.allKontentItemArticle.nodes
 
     articles.forEach(article => {
-      items.push(<Post data={article} key={article.elements.slug.value} />)
+      items.push(<Article data={article} key={article.elements.slug.value} />)
     })
 
     return (
@@ -16,7 +16,7 @@ class TagTemplateDetails extends React.Component {
         <div className="content__inner">
           <div className="page">
             <h1 className="page__title">
-              All Posts tagged as &quot;
+              All Articles tagged as &quot;
               {tagTitle}
               &quot;
             </h1>

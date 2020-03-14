@@ -43,8 +43,8 @@ updated for Gatsby v2 by the team at
     │   ├── Links
     │   ├── Menu
     │   ├── PageTemplateDetails
-    │   ├── Post
-    │   ├── PostTemplateDetails
+    │   ├── Article
+    │   ├── ArticleTemplateDetails
     │   ├── Sidebar
     │   └── TagTemplateDetails
     ├── layouts

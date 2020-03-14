@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../Post'
+import Article from '../Article'
 
 class CategoryTemplateDetails extends React.Component {
   render() {
@@ -7,7 +7,7 @@ class CategoryTemplateDetails extends React.Component {
     const { category } = this.props.pageContext
     const articles = this.props.data.allKontentItemArticle.nodes
     articles.forEach(article => {
-      items.push(<Post data={article} key={article.system.codename} />)
+      items.push(<Article data={article} key={article.system.codename} />)
     })
 
     return (
