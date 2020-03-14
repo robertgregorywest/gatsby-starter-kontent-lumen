@@ -22,7 +22,6 @@ updated for Gatsby v2 by the team at
 + Automatic Sitemap generation.
 + Offline support.
 + Google Analytics support.
-+ Disqus Comments support.
 
 ## Folder Structure
 
@@ -39,7 +38,6 @@ updated for Gatsby v2 by the team at
     │       └── pages
     ├── components
     │   ├── CategoryTemplateDetails
-    │   ├── Disqus
     │   ├── Links
     │   ├── Menu
     │   ├── PageTemplateDetails

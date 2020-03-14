@@ -7,7 +7,6 @@ module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    disqusShortname: '',
   },
   plugins: [
     {

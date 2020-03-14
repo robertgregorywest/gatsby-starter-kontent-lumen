@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import Disqus from '../Disqus/Disqus'
 import './style.scss'
 
 class ArticleTemplateDetails extends React.Component {
@@ -35,15 +34,6 @@ class ArticleTemplateDetails extends React.Component {
       </div>
     )
 
-    const commentsBlock = (
-      <div>
-        <Disqus
-          postNode={article}
-          siteMetadata={this.props.data.kontentItemSiteMetadata.elements.title.value}
-        />
-      </div>
-    )
-
     return (
       <div>
         {homeBlock}
@@ -74,7 +64,6 @@ class ArticleTemplateDetails extends React.Component {
                 <br /> <strong>{author.elements.name.value}</strong> on Twitter
               </a>
             </p>
-            {commentsBlock}
           </div>
         </div>
       </div>
