@@ -17,7 +17,7 @@ class NotFoundRoute extends React.Component {
                 <h1 className="page__title">NOT FOUND</h1>
                 <div className="page__body">
                   <p>
-                    You just hit a route that doesn&#39;t exist... the sadness.
+                   {this.props.data.kontentItemSiteMetadata.elements.page_not_found_message.value}
                   </p>
                 </div>
               </div>
@@ -42,6 +42,9 @@ export const pageQuery = graphql`
           value
         }
         title {
+          value
+        }
+        page_not_found_message {
           value
         }
       }
