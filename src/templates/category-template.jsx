@@ -15,7 +15,7 @@ class CategoryTemplate extends React.Component {
       <Layout>
         <div>
           <Helmet title={`${categoryTitle} - ${siteTitle}`} />
-          <Sidebar/>
+          <Sidebar />
           <CategoryTemplateDetails {...categoryTemplateData} />
         </div>
       </Layout>

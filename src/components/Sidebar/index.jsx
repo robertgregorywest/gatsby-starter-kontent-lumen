@@ -1,13 +1,12 @@
 import React from 'react'
 import get from 'lodash/get'
-import { Link } from 'gatsby'
-import { useStaticQuery } from 'gatsby'
+import { Link, useStaticQuery } from 'gatsby'
+
 import Menu from '../Menu'
 import Links from '../Links'
 import './style.scss'
 
 const sidebar = () => {
-
   const data = useStaticQuery(graphql`
   query SidebarQuery {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
@@ -77,7 +76,7 @@ const sidebar = () => {
     }
   }
 `
-)
+  )
 
   const author = data.kontentItemAuthor
   const menu = data.kontentItemMenu

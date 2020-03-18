@@ -1,7 +1,7 @@
 const lost = require('lost')
 const pxtorem = require('postcss-pxtorem')
 
-const url = 'https://lumen.netlify.com'
+const url = 'https://flamboyant-dubinsky-57cbb1.netlify.com/'
 
 module.exports = {
   siteMetadata: {
@@ -23,7 +23,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: 'UA-73379983-2' },
+      options: { trackingId: 'UA-39248355-10' },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',

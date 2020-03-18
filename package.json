@@ -1,8 +1,11 @@
 {
-  "version": "3.0.0",
-  "name": "gatsby-v2-starter-lumen",
-  "description": "Simple starter for Gatsby",
-  "main": "n/a",
+  "version": "0.1.0",
+  "name": "gatsby-starter-kontent-lumen",
+  "description": "Simple starter blogpost portfolio page for Gatsby and Kontent headless CMS.",
+  "repository": "git+https://github.com/kentico/gatsby-starter-kontent-lumen",
+  "author": "Martin Makarsky <martinmakarsky@gmail.com> (https://github.com/makma)",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
@@ -13,16 +16,14 @@
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
-  "repository": "git+https://github.com/alxshelepenok/gatsby-starter-lumen.git",
   "keywords": [
     "gatsby",
     "blog",
-    "react",
-    "theme",
-    "starter"
+    "starter",
+    "kontent",
+    "headless CMS",
+    "CMS"
   ],
-  "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
-  "license": "MIT",
   "dependencies": {
     "@kentico/gatsby-source-kontent": "^4.4.0",
     "bluebird": "^3.5.1",
