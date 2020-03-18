@@ -1,7 +1,7 @@
 const lost = require('lost')
 const pxtorem = require('postcss-pxtorem')
 
-const url = 'https://flamboyant-dubinsky-57cbb1.netlify.com/'
+const url = 'https://suspicious-lumiere-faa869.netlify.com/'
 
 module.exports = {
   siteMetadata: {
