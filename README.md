@@ -53,7 +53,14 @@ migrated for getting content from headless CMS
 Install this starter (assuming Gatsby is installed) by running from your CLI:
 `gatsby new gatsby-starter-kontent-lumen https://github.com/kentico/gatsby-starter-kontent-lumen`
 
-TODO: Intructions for own Kontent project 
+#### Import sample data and content structure from the source project into your project
+1. Create a free project in app.kontent.ai
+1. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
+1. Go to Kontent [Template Manager](https://kentico.github.io/kontent-template-manager/) and enter copied `projectId` and `CM API key` into *Target Project* section
+1. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `default` language
+1. Click on `Prepare import data`
+1. Click on `Proceed with import`
+1. Use target `projectId` in the `gatsby-config.json`
 
 #### Running in Development
 `gatsby develop`
