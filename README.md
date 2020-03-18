@@ -1,6 +1,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/GatsbyCentral/gatsby-v2-starter-lumen/master/LICENSE)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/78b48df8-68df-4b9a-9dfc-91803d8a77d8/deploy-status)](https://app.netlify.com/sites/gatsby-starter-kontent-lumen/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6fcfec24-fa34-4115-a15e-f4af07b55103/deploy-status)](https://app.netlify.com/sites/suspicious-lumiere-faa869/deploys)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
+[![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://suspicious-lumiere-faa869.netlify.com/)
 
 # Gatsby Starter Kontent Lumen
 
