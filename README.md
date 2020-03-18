@@ -70,6 +70,4 @@ Netlify CMS can run in any frontend web environment, but the quickest way to try
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
 
 ## Screenshot
-
-TODO: Screenshot
-![](http://i.imgur.com/422y5GV.png)
+![](https://i.imgur.com/J0RZiot.png)
