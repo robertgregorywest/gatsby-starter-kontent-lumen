@@ -13,110 +13,110 @@ exports.createPages = ({ graphql, actions }) => {
     const categoryTemplate = path.resolve('./src/templates/category-template.jsx')
 
     graphql(`
-      {
-        allKontentItemCategory {
-          nodes {
-            system {
-              codename
-            }
-            elements {
-              slug {
-                value
-              }
-              title {
-                value
-              }
-            }
+    {
+      allKontentItemCategory(filter: {preferred_language: {eq: "en-US"}}) {
+        nodes {
+          system {
+            codename
           }
-        }
-        allKontentItemTag {
-          nodes {
-            system {
-              codename
+          elements {
+            slug {
+              value
             }
-            elements {
-              title {
-                value
-              }
-              slug {
-                value
-              }
-            }
-          }
-        }
-        allKontentItemPage {
-          nodes {
-            elements {
-              description {
-                value
-              }
-              title {
-                value
-              }
-              slug {
-                value
-              }
-            }
-          }
-        }
-        allKontentItemArticle {
-          nodes {
-            elements {
-              category {
-                linked_items {
-                  ... on KontentItemCategory {
-                    system {
-                      codename
-                    }
-                    elements {
-                      title {
-                        value
-                      }
-                      slug {
-                        value
-                      }
-                    }
-                  }
-                }
-              }
-              date {
-                value
-              }
-              description {
-                value
-              }
-              content {
-                resolvedData {
-                  html
-                }
-              }
-              slug {
-                value
-              }
-              tags {
-                linked_items {
-                  ... on KontentItemTag {
-                    system {
-                      codename
-                    }
-                    elements {
-                      title {
-                        value
-                      }
-                      slug {
-                        value
-                      }
-                    }
-                  }
-                }
-              }
-              title {
-                value
-              }
+            title {
+              value
             }
           }
         }
       }
+      allKontentItemTag(filter: {preferred_language: {eq: "en-US"}}) {
+        nodes {
+          system {
+            codename
+          }
+          elements {
+            title {
+              value
+            }
+            slug {
+              value
+            }
+          }
+        }
+      }
+      allKontentItemPage(filter: {preferred_language: {eq: "en-US"}}) {
+        nodes {
+          elements {
+            description {
+              value
+            }
+            title {
+              value
+            }
+            slug {
+              value
+            }
+          }
+        }
+      }
+      allKontentItemArticle(filter: {preferred_language: {eq: "en-US"}}) {
+        nodes {
+          elements {
+            category {
+              linked_items {
+                ... on KontentItemCategory {
+                  system {
+                    codename
+                  }
+                  elements {
+                    title {
+                      value
+                    }
+                    slug {
+                      value
+                    }
+                  }
+                }
+              }
+            }
+            date {
+              value
+            }
+            description {
+              value
+            }
+            content {
+              resolvedData {
+                html
+              }
+            }
+            slug {
+              value
+            }
+            tags {
+              linked_items {
+                ... on KontentItemTag {
+                  system {
+                    codename
+                  }
+                  elements {
+                    title {
+                      value
+                    }
+                    slug {
+                      value
+                    }
+                  }
+                }
+              }
+            }
+            title {
+              value
+            }
+          }
+        }
+      }
+    }
     `).then(result => {
       if (result.errors) {
         console.log(result.errors)
