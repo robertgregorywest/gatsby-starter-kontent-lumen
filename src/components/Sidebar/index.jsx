@@ -1,6 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
-import { Link, useStaticQuery } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Menu from '../Menu'
 import Links from '../Links'

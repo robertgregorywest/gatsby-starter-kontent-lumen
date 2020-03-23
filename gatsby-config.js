@@ -16,7 +16,8 @@ module.exports = {
           projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
         },
         languageCodenames: [
-          'default', // Or the languages in your project (Project settings -> Localization)
+          'en-US', // Or the languages in your project (Project settings -> Localization)
+          'cs-CZ',
         ],
       },
     },
