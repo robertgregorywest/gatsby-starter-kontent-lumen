@@ -56,14 +56,24 @@ migrated for getting content from headless CMS
 Install this starter (assuming Gatsby is installed) by running from your CLI:
 `gatsby new gatsby-starter-kontent-lumen https://github.com/kentico/gatsby-starter-kontent-lumen`
 
-#### Import sample data and content structure from the source project into your project
+### Import site using Template Manager (web UI) or Kontent Backup Manager (CLI)
+
 1. Create a free project in app.kontent.ai
 1. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
-1. Go to Kontent [Template Manager](https://kentico.github.io/kontent-template-manager/) and enter copied `projectId` and `CM API key` into *Target Project* section
-1. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `default` language
-1. Click on `Prepare import data`
-1. Click on `Proceed with import`
-1. Use target `projectId` in the `gatsby-config.json`
+1. [Rename Default language's codename](https://docs.kontent.ai/tutorials/set-up-projects/set-up-languages/adding-languages) to `en-US` and add a new language with `cs-CZ` codename
+
+#### Import sample data and content structure from the source project into your project using Template Manager (web UI)
+3. Go to Kontent [Template Manager](https://kentico.github.io/kontent-template-manager/) and enter copied `projectId` and `CM API key` into *Target Project* section
+3. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `en-US` and `cs-CZ` language codenames
+3. Click on `Prepare import data`
+3. Click on `Proceed with import`
+3. Use target `projectId` in the `gatsby-config.json`
+
+#### Import sample data and content structure from the source project into your project using Kontent Backup Manager (code/CLI)
+3. Install Kontent Backup Manager globally: `npm i wip-backup-manager -g`
+3. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
+3. Restore project from `kontent.backup.zip` file using command: 
+`kbm --action=restore --apiKey=xxx --projectId=xxx --zipFilename=kontent-backup`
 
 #### Running in Development
 `gatsby develop`
@@ -78,6 +88,13 @@ Netlify CMS can run in any frontend web environment, but the quickest way to try
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/kentico/gatsby-starter-kontent-lumen" target="_blank"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
+
+## Updating the content in the source project
+
+For updating sample data edit the source project `00676a8d-358c-0084-f2f2-33ed466c480a` and update backup package which is part of this repo using [Kontent Backup Manager](https://github.com/Enngage/kontent-backup-manager)
+
+`kbm --action=backup --apiKey=<Management API
+ key from project settings> --projectId=00676a8d-358c-0084-f2f2-33ed466c480a --zipFilename=kontent-backup`
 
 ## Screenshot
 ![](https://i.imgur.com/J0RZiot.png)
