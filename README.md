@@ -62,7 +62,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 `gatsby build`
 
 ### Production Deploy
-Before deploy to production add own google analytics `trackingId` to `gatsby-config.js`. 
+Before deploying to production add own google analytics `trackingId` to `gatsby-config.js`. 
 
 ### Deploy with Netlify
 
