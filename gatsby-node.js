@@ -47,12 +47,6 @@ exports.createPages = ({ graphql, actions }) => {
       allKontentItemPage(filter: {preferred_language: {eq: "en-US"}}) {
         nodes {
           elements {
-            description {
-              value
-            }
-            title {
-              value
-            }
             slug {
               value
             }
@@ -62,55 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
       allKontentItemArticle(filter: {preferred_language: {eq: "en-US"}}) {
         nodes {
           elements {
-            category {
-              linked_items {
-                ... on KontentItemCategory {
-                  system {
-                    codename
-                  }
-                  elements {
-                    title {
-                      value
-                    }
-                    slug {
-                      value
-                    }
-                  }
-                }
-              }
-            }
-            date {
-              value
-            }
-            description {
-              value
-            }
-            content {
-              resolvedData {
-                html
-              }
-            }
             slug {
-              value
-            }
-            tags {
-              linked_items {
-                ... on KontentItemTag {
-                  system {
-                    codename
-                  }
-                  elements {
-                    title {
-                      value
-                    }
-                    slug {
-                      value
-                    }
-                  }
-                }
-              }
-            }
-            title {
               value
             }
           }
