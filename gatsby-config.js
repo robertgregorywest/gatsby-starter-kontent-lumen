@@ -4,6 +4,8 @@ const pxtorem = require('postcss-pxtorem')
 const url = 'https://suspicious-lumiere-faa869.netlify.com/'
 
 module.exports = {
+  // These properties are used by gatsby-plugin-sitemap
+  // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#how-to-use
   siteMetadata: {
     url,
     siteUrl: url,
