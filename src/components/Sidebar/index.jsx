@@ -101,13 +101,13 @@ const sidebar = () => {
             {isHomePage ? (
               <h1 className="sidebar__author-title">
                 <Link className="sidebar__author-title-link" to="/">
-                  {author.name}
+                  {author.elements.name.value}
                 </Link>
               </h1>
             ) : (
               <h2 className="sidebar__author-title">
                 <Link className="sidebar__author-title-link" to="/">
-                  {author.name}
+                  {author.elements.name.value}
                 </Link>
               </h2>
             )}
