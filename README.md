@@ -41,6 +41,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Restore project from `kontent.backup.zip` file using command: 
 `kbm --action=restore --apiKey=<CM API key> --projectId=<projectId> --zipFilename=kontent-backup`
 1. Use target `projectId` in the `gatsby-config.json`
+1. Publish all the imported items in the kontent.ai web UI
 
 <details>
   <summary>Alternatively, you can use the Template Manager (web UI) for importing the content.</summary>
@@ -53,6 +54,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Click on `Prepare import data`
 1. Click on `Proceed with import`
 1. Use target `projectId` in the `gatsby-config.json`
+1. Publish all the imported items in the kontent.ai web UI
 </details>
 
 ### Running in Development
