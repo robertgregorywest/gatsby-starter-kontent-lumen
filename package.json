@@ -25,6 +25,11 @@
     "CMS"
   ],
   "dependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
     "@kentico/gatsby-source-kontent": "^4.4.0",
     "bluebird": "^3.5.1",
     "gatsby": "^2.20.10",
@@ -39,11 +44,6 @@
     "lodash": "^4.17.4",
     "node-sass": "^4.9.3",
     "prismjs": "^1.15.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0"
-  },
-  "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
