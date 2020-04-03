@@ -64,7 +64,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 ### Production Deploy
 Before deploying to production add own google analytics `trackingId` to `gatsby-config.js`. 
 
-### Deploy with Netlify
+### Deploy with Netlify 
 
 Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. Use the button below to build and deploy your own copy of the repository:
 
