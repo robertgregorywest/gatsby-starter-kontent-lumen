@@ -1,7 +1,7 @@
 const lost = require('lost')
 const pxtorem = require('postcss-pxtorem')
 
-const url = 'https://suspicious-lumiere-faa869.netlify.com/'
+const url = 'https://gatsby-starter-kontent-lumen.netlify.com/'
 
 module.exports = {
   // These properties are used by gatsby-plugin-sitemap
