@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "name": "gatsby-starter-kontent-lumen",
+  "version": "1.0.0",
+  "name": "@kentico/gatsby-starter-kontent-lumen",
   "description": "Simple starter blogpost portfolio page for Gatsby and Kontent headless CMS.",
   "repository": "git+https://github.com/kentico/gatsby-starter-kontent-lumen",
   "author": "Martin Makarsky <martinmakarsky@gmail.com> (https://github.com/makma)",
