@@ -14,7 +14,7 @@ migrated for getting content from headless CMS
 [Kontent](https://kontent.ai/).
 
 ## Screenshot
-![Page Screenshot](https://i.imgur.com/IMzUeeD.png)
+![Page Screenshot](https://i.imgur.com/jVImqT2.jpg)
 
 ## Features
 + Content from [Kontent](http://kontent.ai/) headless CMS.
