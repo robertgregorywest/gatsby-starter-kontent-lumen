@@ -37,7 +37,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 
 1. Create a free (target) project in app.kontent.ai
 1. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
-1. Install Kontent Backup Manager globally: `npm i wip-backup-manager -g`
+1. Install Kontent Backup Manager globally: `npm i @kentico/kontent-backup-manager -g`
 1. Restore project from `kontent.backup.zip` file using command: 
 `kbm --action=restore --apiKey=<CM API key> --projectId=<projectId> --zipFilename=kontent-backup`
 1. Use target `projectId` in the `gatsby-config.json`
