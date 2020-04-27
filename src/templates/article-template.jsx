@@ -77,7 +77,7 @@ export const pageQuery = graphql`
       nodes {
         elements {
           category {
-            linked_items {
+            value {
               ... on kontent_item_category {
                 elements {
                   title {
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
             value
           }
           tags {
-            linked_items {
+            value {
               ... on kontent_item_tag {
                 system {
                   codename

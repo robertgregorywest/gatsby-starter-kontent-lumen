@@ -7,8 +7,8 @@ class Article extends React.Component {
   render() {
     const title = this.props.data.elements.title.value
     const date = this.props.data.elements.date.value
-    const category = this.props.data.elements.category.linked_items[0].elements.title.value
-    const categorySlug = this.props.data.elements.category.linked_items[0].elements.slug.value
+    const category = this.props.data.elements.category.value[0].elements.title.value
+    const categorySlug = this.props.data.elements.category.value[0].elements.slug.value
     const description = this.props.data.elements.description.value
     const slug = `/articles/${this.props.data.elements.slug.value}`
 
