@@ -3,6 +3,8 @@ const pxtorem = require('postcss-pxtorem')
 
 const url = 'https://gatsby-starter-kontent-lumen.netlify.com/'
 
+require('dotenv').config()
+
 module.exports = {
   // These properties are used by gatsby-plugin-sitemap
   // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#how-to-use
@@ -14,11 +16,17 @@ module.exports = {
     {
       resolve: '@kentico/gatsby-source-kontent',
       options: {
-        projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
-        languageCodenames: [
-          'en-US', // Or the languages in your project (Project settings -> Localization)
-          'cs-CZ',
-        ],
+        projectId: process.env.KONTENT_PROJECT_ID, // Fill in your Project ID
+        // if false used authorization key for secured API
+        usePreviewUrl: process.env.KONTENT_PREVIEW_ENABLED,
+        authorizationKey: process.env.KONTENT_PREVIEW_ENABLED
+          ? process.env.KONTENT_PREVIEW_KEY
+          : undefined,
+        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
+        proxy: {
+          deliveryDomain: process.env.KONTENT_DELIVERY_DOMAIN || undefined,
+          previewDeliveryDomain: process.env.KONTENT_PREVIEW_DELIVERY_DOMAIN || undefined,
+        },
       },
     },
     'gatsby-plugin-sharp',
