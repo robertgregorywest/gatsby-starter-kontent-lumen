@@ -47,7 +47,7 @@ class TagsRoute extends React.Component {
 export default TagsRoute
 
 export const pageQuery = graphql`
-  query TagsQuery {
+  {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         title {

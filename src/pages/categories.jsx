@@ -50,7 +50,7 @@ class CategoriesRoute extends React.Component {
 export default CategoriesRoute
 
 export const pageQuery = graphql`
-  query CategoriesQuery {
+  {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         title {
