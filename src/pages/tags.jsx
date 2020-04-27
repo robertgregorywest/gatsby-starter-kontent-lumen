@@ -28,7 +28,7 @@ class TagsRoute extends React.Component {
                             to={`/tags/${tag.elements.slug.value}/`}
                             className="tags__list-item-link"
                           >
-                            {tag.elements.title.value} ({tag.usedByContentItems.length})
+                            {tag.elements.title.value} ({tag.used_by_articles.length})
                           </Link>
                         </li>
                       ))}
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
             value
           }
         }
-        usedByContentItems {
+        used_by_articles {
           system {
             codename
           }

@@ -2,6 +2,13 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const slash = require('slash')
+const { linkUsedByContentItems } = require('./src/usedByContentItemsField')
+
+
+exports.createSchemaCustomization = async api => {
+  linkUsedByContentItems(api, 'article', 'tag', 'tags', 'used_by_articles')
+  linkUsedByContentItems(api, 'article', 'category', 'category', 'used_by_articles')
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions

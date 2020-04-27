@@ -31,7 +31,7 @@ class CategoriesRoute extends React.Component {
                             to={`/categories/${category.elements.slug.value}/`}
                             className="categories__list-item-link"
                           >
-                            {category.elements.slug.value} ({category.usedByContentItems.length})
+                            {category.elements.slug.value} ({category.used_by_articles.length})
                           </Link>
                         </li>
                       ))}
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
             value
           }
         }
-        usedByContentItems {
+        used_by_articles {
           system {
             codename
           }
