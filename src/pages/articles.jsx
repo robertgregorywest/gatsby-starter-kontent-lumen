@@ -71,9 +71,7 @@ export const pageQuery = graphql`
             value
           }
           content {
-            resolvedData {
-              html
-            }
+            value
           }
           slug {
             value

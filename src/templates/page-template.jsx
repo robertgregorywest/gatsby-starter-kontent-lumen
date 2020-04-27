@@ -100,9 +100,6 @@ export const pageQuery = graphql`
       }
       elements {
         description {
-          resolvedData {
-            html
-          }
           value
         }
         meta_description  {

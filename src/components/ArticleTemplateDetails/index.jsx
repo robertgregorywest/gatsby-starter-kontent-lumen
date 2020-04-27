@@ -43,7 +43,7 @@ class ArticleTemplateDetails extends React.Component {
             <div
               className="article-single__body"
               /* eslint-disable-next-line react/no-danger */
-              dangerouslySetInnerHTML={{ __html: article.content.resolvedData.html }}
+              dangerouslySetInnerHTML={{ __html: article.content.value }}
             />
             <div className="article-single__date">
               <em>
