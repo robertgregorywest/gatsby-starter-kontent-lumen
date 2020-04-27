@@ -39,7 +39,7 @@ export const pageQuery = graphql`
         elements {
           category {
             linked_items {
-              ... on KontentItemCategory {
+              ... on kontent_item_category {
                 elements {
                   title {
                     value
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
           }
           tags {
             linked_items {
-              ... on KontentItemTag {
+              ... on kontent_item_tag {
                 elements {
                   title {
                     value

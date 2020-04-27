@@ -26,7 +26,7 @@ const sidebar = () => {
       elements {
         menu_items {
           linked_items {
-            ... on KontentItemMenuItem {
+            ... on kontent_item_menu_item {
               id
               elements {
                 label {
