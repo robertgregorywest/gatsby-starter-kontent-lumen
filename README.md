@@ -40,7 +40,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Install Kontent Backup Manager globally: `npm i @kentico/kontent-backup-manager -g`
 1. Restore project from `kontent.backup.zip` file using command: 
 `kbm --action=restore --apiKey=<CM API key> --projectId=<projectId> --zipFilename=kontent-backup`
-1. Use target `projectId` in the `gatsby-config.json`
+1. Use target `projectId` in the `gatsby-config.json` (or use `.env.template` to set up environment variables)
 1. Publish all the imported items in the kontent.ai web UI
 
 <details>
