@@ -53,7 +53,7 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `en-US` and `cs-CZ` language codenames
 1. Click on `Prepare import data`
 1. Click on `Proceed with import`
-1. Use target `projectId` in the `gatsby-config.json`
+1. Use target `projectId` in the `gatsby-config.json` (or use `.env.template` to set up environment variables)
 1. Publish all the imported items in the kontent.ai web UI
 </details>
 
