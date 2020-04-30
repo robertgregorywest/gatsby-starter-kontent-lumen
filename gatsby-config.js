@@ -22,11 +22,7 @@ module.exports = {
         authorizationKey: process.env.KONTENT_PREVIEW_ENABLED && process.env.KONTENT_PREVIEW_ENABLED.toLowerCase() === 'true'
           ? process.env.KONTENT_PREVIEW_KEY
           : undefined,
-        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
-        proxy: {
-          deliveryDomain: process.env.KONTENT_DELIVERY_DOMAIN || undefined,
-          previewDeliveryDomain: process.env.KONTENT_PREVIEW_DELIVERY_DOMAIN || undefined,
-        },
+        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim())
       },
     },
     'gatsby-plugin-sharp',
