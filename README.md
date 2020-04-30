@@ -38,9 +38,10 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Create a free (target) project in app.kontent.ai
 1. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
 1. Install Kontent Backup Manager globally: `npm i @kentico/kontent-backup-manager -g`
-1. Restore project from `kontent.backup.zip` file using command: 
+1. Restore project from `kontent.backup.zip` file using command:
 `kbm --action=restore --apiKey=<CM API key> --projectId=<projectId> --zipFilename=kontent-backup`
-1. Use target `projectId` in the `gatsby-config.json` (or use `.env.template` to set up environment variables)
+1. Use target `projectId` in the `gatsby-config.json`
+  * or copy `.env.template` with `.env` name and set the `KONTENT_PROJECT_ID` environment variable
 1. Publish all the imported items in the kontent.ai web UI
 
 <details>
@@ -53,7 +54,8 @@ Install this starter (assuming Gatsby is installed) by running from your CLI:
 1. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `en-US` and `cs-CZ` language codenames
 1. Click on `Prepare import data`
 1. Click on `Proceed with import`
-1. Use target `projectId` in the `gatsby-config.json` (or use `.env.template` to set up environment variables)
+1. Use target `projectId` in the `gatsby-config.json`
+  * or copy `.env.template` with `.env` name and set the `KONTENT_PROJECT_ID` environment variable
 1. Publish all the imported items in the kontent.ai web UI
 </details>
 
