@@ -29,7 +29,7 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
-    "@kentico/gatsby-source-kontent": "6.0.0-vnext.4",
+    "@kentico/gatsby-source-kontent": "6.0.0-vnext.5",
     "babel-eslint": "^8.2.1",
     "bluebird": "^3.5.1",
     "dotenv": "^8.2.0",
@@ -50,7 +50,7 @@
     "gatsby-plugin-sitemap": "^2.0.1",
     "lodash": "^4.17.4",
     "lost": "^8.2.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.14.1",
     "postcss-pxtorem": "^4.0.1",
     "prettier": "^1.10.2",
     "prismjs": "^1.15.0"
