@@ -60,7 +60,7 @@ migrated for getting content from headless CMS
 
 ### Join codebase and content data
 
-Copy [`.env.template`](`./.env.template`) and name it `.env` then set the `KONTENT_PROJECT_ID` environment variable to value from Kontent -> "Project Settings", ->  API keys -> Project ID
+Copy [`.env.template`](`./.env.template`) and name it `.env` then set the `KONTENT_PROJECT_ID` environment variable to value from Kontent -> "Project Settings" ->  API keys -> Project ID
 
 **You are now ready to use the site as your own!**
 
