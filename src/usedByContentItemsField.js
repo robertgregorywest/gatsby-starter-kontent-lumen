@@ -31,33 +31,17 @@ const linkUsedByContentItems = (
         type: `[${parentGraphqlType}]`,
         // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: async (source, args, context) => {
-          const linkedNodes = await context.nodeModel.runQuery({
+          const allParentTypeNodes = await context.nodeModel.runQuery({
             query: {
-              filter: {
-                elements: {
-                  [linkedElementCodename]: {
-                    value: {
-                      elemMatch: {
-                        preferred_language: {
-                          // depends on language fallback preferences
-                          eq: source.preferred_language,
-                        },
-                        system: {
-                          codename: {
-                            eq: source.system.codename,
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
+              filter: {},
             },
             type: parentGraphqlType,
             firstOnly: false,
           })
-
-          return linkedNodes
+          return allParentTypeNodes.filter(item =>
+            item.preferred_language === source.preferred_language
+            && item.elements[linkedElementCodename].value.includes(source.system.codename)
+          )
         },
       },
     },
