@@ -41,7 +41,6 @@ migrated for getting content from headless CMS
 
 ### Create content source
 
-1. Install Kontent
 1. Go to [app.kontent.ai](https://) and [create empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
 1. Go to "Project Settings", select API keys and copy
     + Project ID
