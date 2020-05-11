@@ -25,6 +25,25 @@ module.exports = {
         languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
       },
     },
+    {
+      resolve: 'kontent-used-by-content-items', // local plugin
+      options: {
+        links: [
+          {
+            parentTypeCodename: 'article',
+            childTypeCodename: 'tag',
+            linkedElementCodename: 'tags',
+            backReferenceName: 'used_by_articles',
+          },
+          {
+            parentTypeCodename: 'article',
+            childTypeCodename: 'category',
+            linkedElementCodename: 'category',
+            backReferenceName: 'used_by_articles',
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',

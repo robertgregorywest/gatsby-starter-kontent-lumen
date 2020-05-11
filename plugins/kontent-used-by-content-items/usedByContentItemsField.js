@@ -15,8 +15,7 @@ const linkUsedByContentItems = (
   backReferenceName
 ) => {
   const {
-    actions: { createTypes },
-    schema,
+    createResolvers,
   } = api
 
   // i.e. article -> kontent_item_article
@@ -24,9 +23,8 @@ const linkUsedByContentItems = (
   // i.e. tag -> kontent_item_tag
   const childGraphqlType = getKontentItemNodeTypeName(childTypeCodename)
 
-  const extendedType = schema.buildObjectType({
-    name: childGraphqlType,
-    fields: {
+  const resolvers = {
+    [childGraphqlType]: {
       [backReferenceName]: {
         type: `[${parentGraphqlType}]`,
         // https://www.gatsbyjs.org/docs/schema-customization/
@@ -45,9 +43,9 @@ const linkUsedByContentItems = (
         },
       },
     },
-  })
+  }
 
-  createTypes(extendedType)
+  createResolvers(resolvers)
 }
 
 module.exports = {
