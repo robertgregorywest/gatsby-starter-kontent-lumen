@@ -30,7 +30,7 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
-    "@kentico/gatsby-source-kontent": "6.0.0-vnext.5",
+    "@kentico/gatsby-source-kontent": "6.0.0",
     "babel-eslint": "^8.2.1",
     "bluebird": "^3.5.1",
     "dotenv": "^8.2.0",
