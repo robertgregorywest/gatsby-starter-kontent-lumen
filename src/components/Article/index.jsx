@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
+import * as _ from 'lodash'
 import './style.scss'
 
 class Article extends React.Component {
   render() {
-    const title = this.props.data.elements.title.value
-    const date = this.props.data.elements.date.value
-    const category = this.props.data.elements.category.linked_items[0].elements.title.value
-    const categorySlug = this.props.data.elements.category.linked_items[0].elements.slug.value
-    const description = this.props.data.elements.description.value
-    const slug = `/articles/${this.props.data.elements.slug.value}`
+    const title = _.get(this.props, 'data.elements.title.value', 'N/A')
+    const date = _.get(this.props, 'data.elements.date.value', 'N/A')
+    const category = _.get(this.props, 'data.elements.category.value[0].elements.title.value', 'N/A')
+    const categorySlug = _.get(this.props, 'data.elements.category.value[0].elements.slug.value', 'N/A')
+    const description = _.get(this.props, 'data.elements.description.value', 'N/A')
+    const slug = `/articles/${_.get(this.props, 'data.elements.slug.value', 'N/A')}`
 
     return (
       <div className="article">

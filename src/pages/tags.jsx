@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import * as _ from 'lodash'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 
@@ -28,7 +29,7 @@ class TagsRoute extends React.Component {
                             to={`/tags/${tag.elements.slug.value}/`}
                             className="tags__list-item-link"
                           >
-                            {tag.elements.title.value} ({tag.usedByContentItems.length})
+                            {tag.elements.title.value} ({_.get(tag.used_by_articles, 'length', 'N/A')})
                           </Link>
                         </li>
                       ))}
@@ -47,7 +48,7 @@ class TagsRoute extends React.Component {
 export default TagsRoute
 
 export const pageQuery = graphql`
-  query TagsQuery {
+  {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         title {
@@ -65,7 +66,7 @@ export const pageQuery = graphql`
             value
           }
         }
-        usedByContentItems {
+        used_by_articles {
           system {
             codename
           }

@@ -9,7 +9,7 @@ class ArticleTemplateDetails extends React.Component {
     const subtitle = articleTemplateData.data.kontentItemSiteMetadata.elements.subtitle.value
     const author = articleTemplateData.data.kontentItemAuthor
     const article = this.props.data.allKontentItemArticle.nodes[0].elements
-    const tags = article.tags.linked_items
+    const tags = article.tags.value
 
     const homeBlock = (
       <div>
@@ -43,7 +43,7 @@ class ArticleTemplateDetails extends React.Component {
             <div
               className="article-single__body"
               /* eslint-disable-next-line react/no-danger */
-              dangerouslySetInnerHTML={{ __html: article.content.resolvedData.html }}
+              dangerouslySetInnerHTML={{ __html: article.content.value }}
             />
             <div className="article-single__date">
               <em>

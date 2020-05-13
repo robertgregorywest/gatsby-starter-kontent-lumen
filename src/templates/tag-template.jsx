@@ -34,12 +34,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    allKontentItemArticle(filter: {elements: {tags: {itemCodenames: {in: [$tagCodename]}}}, preferred_language: {eq: "en-US"}}, sort: {fields: elements___date___value, order: DESC}) {
+    allKontentItemArticle(filter: {elements: {tags: {value: {elemMatch: {system: {codename: {eq: $tagCodename}}}}}}, preferred_language: {eq: "en-US"}}, sort: {fields: elements___date___value, order: DESC}) {
       nodes {
         elements {
           category {
-            linked_items {
-              ... on KontentItemCategory {
+            value {
+              ... on kontent_item_category {
                 elements {
                   title {
                     value
@@ -58,16 +58,14 @@ export const pageQuery = graphql`
             value
           }
           content {
-            resolvedData {
-              html
-            }
+            value
           }
           slug {
             value
           }
           tags {
-            linked_items {
-              ... on KontentItemTag {
+            value {
+              ... on kontent_item_tag {
                 elements {
                   title {
                     value

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import * as _ from 'lodash'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 
@@ -31,7 +32,7 @@ class CategoriesRoute extends React.Component {
                             to={`/categories/${category.elements.slug.value}/`}
                             className="categories__list-item-link"
                           >
-                            {category.elements.slug.value} ({category.usedByContentItems.length})
+                            {category.elements.slug.value} ({_.get(category.used_by_articles, 'length', 'N/A')})
                           </Link>
                         </li>
                       ))}
@@ -50,7 +51,7 @@ class CategoriesRoute extends React.Component {
 export default CategoriesRoute
 
 export const pageQuery = graphql`
-  query CategoriesQuery {
+  {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
       elements {
         title {
@@ -68,7 +69,7 @@ export const pageQuery = graphql`
             value
           }
         }
-        usedByContentItems {
+        used_by_articles {
           system {
             codename
           }

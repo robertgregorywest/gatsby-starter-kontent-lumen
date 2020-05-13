@@ -25,8 +25,8 @@ const sidebar = () => {
     kontentItemMenu(system: {codename: {eq: "navigation_menu"}}) {
       elements {
         menu_items {
-          linked_items {
-            ... on KontentItemMenuItem {
+          value {
+            ... on kontent_item_menu_item {
               id
               elements {
                 label {
