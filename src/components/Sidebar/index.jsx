@@ -6,7 +6,7 @@ import Menu from '../Menu'
 import Links from '../Links'
 import './style.scss'
 
-const sidebar = () => {
+const sidebar = ({ isHomePage }) => {
   const data = useStaticQuery(graphql`
   query SidebarQuery {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
@@ -81,7 +81,6 @@ const sidebar = () => {
   const author = data.kontentItemAuthor
   const menu = data.kontentItemMenu
   const copyright = data.kontentItemSiteMetadata.elements.copyright.value
-  const isHomePage = get(data, 'pathname', '/') === '/'
   const profilePic = data.kontentItemAuthor.elements.avatar_image.value[0].url
 
   return (
